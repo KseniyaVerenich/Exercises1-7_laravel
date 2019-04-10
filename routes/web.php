@@ -22,3 +22,6 @@ Route::get('/clock', function() {
 Route::get('/countdown', function(){
     return view ('/countdown');
 });
+Route::get('/game', function() {
+    return view ('/game');
+});

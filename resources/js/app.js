@@ -22,6 +22,10 @@ window.Vue = require('vue');
 
 Vue.component('clock', require('./components/clock.vue').default);
 Vue.component('countdown', require('./components/countdown.vue').default);
+Vue.component('game', require('./components/game.vue').default);
+Vue.component('square', require('./components/square.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

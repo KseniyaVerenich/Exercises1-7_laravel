@@ -85,8 +85,9 @@
 
                     <div class="links">
 
-                    <a href="http://localhost:8888/clock">Clock</a>
+                    <a href="/clock">Clock</a>
                     <a href='/countdown'>Countdown</a>
+                    <a href='/game'>Tic-Tac-Toe</a>
                 </div>
 
                 <div>
