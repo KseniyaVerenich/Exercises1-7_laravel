@@ -25,3 +25,6 @@ Route::get('/countdown', function(){
 Route::get('/game', function() {
     return view ('/game');
 });
+Route::get('/calculator', function() {
+    return view ('/calculator');
+});

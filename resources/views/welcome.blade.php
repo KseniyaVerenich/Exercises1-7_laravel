@@ -88,6 +88,7 @@
                     <a href="/clock">Clock</a>
                     <a href='/countdown'>Countdown</a>
                     <a href='/game'>Tic-Tac-Toe</a>
+                    <a href='/calculator'>Calculator</a>
                 </div>
 
                 <div>
