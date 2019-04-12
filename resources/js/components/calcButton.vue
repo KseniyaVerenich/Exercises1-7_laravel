@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name:"calcButton",
+    name:"calc-button",
   data() {
     return {
     
@@ -31,7 +31,7 @@ export default {
     },
 
     clickHandler() {
-        console.log("hello");
+        
         var val = this.outputType;
        this.$emit("onButtonClick", {value:val} )
     }

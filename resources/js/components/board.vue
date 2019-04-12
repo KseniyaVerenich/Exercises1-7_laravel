@@ -1,75 +1,83 @@
 <template>
-  <div class="calculator">
-    <div class="btn display">{{current || 0 }}</div>
-    <div @click="clear" class="btn btn-primary">AC</div>
-    <div @click="sign" class="btn btn-primary">+/-</div>
-    <div @click="percentage" class="btn btn-primary">%</div>
-    <div class="btn btn-secondary">/</div>
-    <div @click="appendNumber('7')" class="btn btn-primary">7</div>
-    <div @click="appendNumber('8')" class="btn btn-primary">8</div>
-    <div @click="appendNumber('9')" class="btn btn-primary">9</div>
-    <div @click="multiply" class="btn btn-secondary">x</div>
-    <div @click="appendNumber('4')" class="btn btn-primary">4</div>
-    <div @click="appendNumber('5')" class="btn btn-primary">5</div>
-    <div @click="appendNumber('6')" class="btn btn-primary">6</div>
-    <div class="btn btn-secondary">-</div>
-    <div @click="appendNumber('1')" class="btn btn-primary">1</div>
-    <div @click="appendNumber('2')" class="btn btn-primary">2</div>
-    <div @click="appendNumber('3')" class="btn btn-primary">3</div>
-    <div class="btn btn-secondary">+</div>
-    <div @click="appendNumber('0')" class="btn zero btn-primary">0</div>
-    <div @click="period" class="btn btn-primary">.</div>
-    <div class="btn btn-secondary">=</div>
+  <div>
+    <div class="calculator">
+      <div class="display">{{current || 0}}</div>
+      <div v-for="n in 20" :key="n">
+        <calcButton v-if="n < 10" :inputType="n.toString()" v-on:onButtonClick="clickedButton"></calcButton>
+        <calcButton v-if="n == 11" :inputType="'.'"></calcButton>
+        <calcButton v-if="n == 10" :inputType="'0'"></calcButton>
+        <calcButton v-if="n > 11 && n !=19" :inputType="ops[n-12]"></calcButton>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import buttons from "./buttons";
+import calcButton from "./calcButton";
 
 export default {
   data() {
     return {
       current: "",
+      temp: "",
+      numbers: [],
+      ops: ["x", "/", "-", "+", "=", "ac", "+/-", "%"]
     };
   },
   components: {
-    buttons
+    calcButton
   },
 
   methods: {
-    clear() {
-      this.current = "";
+
+    clickedButton (obj) {
+        console.log(obj);
+        this.current;
     },
+//     clear() {
+//       this.current = "";
+//     },
 
-    sign() {
-        if (this.current.charAt(0) == '-') {
-            this.current.slice(1);
-        } else {
-            this.current = '-' + this.current
-        }
-    },
+//     sign() {
+//       if (this.current.charAt(0) == ops[2]) {
+//         this.current.slice(1);
+//       } else {
+//         this.current = ops[2] + this.current;
+//       }
+//     },
 
-    percentage() {
-        this.current= this.current/100;
-    },
+//     percentage() {
+//       this.current = this.current / 100;
+//     },
 
-    appendNumber (number) {
-        this.current = this.current + number;
-    },
+//     appendNumber() {
+//       this.current = this.current + ;
+//     },
 
-    multiply() {
-        this.current = appendNumber() * number ;
-    },
+//     store() {
+//       this.numbers.push(this.current);
+//       this.current = "";
+//       console.log(this.numbers);
+//     },
 
-    period() {
-        if (this.current.indexOf('.') === -1){
-            this.appendNumber ('.');
-        }
-    }
+   
+//     period() {
+//       if (this.current.indexOf(".") === -1) {
+//         this.appendNumber(".");
+//       }
+//     },
 
+//     equal() {
+   
+//     }
+  },
+
+  created (){
+      this.clickedButton({value:"test"});
   }
 };
 </script>
+
 
 <style scoped>
 .calculator {
@@ -90,16 +98,6 @@ export default {
 
 .zero {
   grid-column: 1/3;
-}
-
-.btn-secondary {
- 
-}
-
-.btn-primary {
-  background-color: lightgrey;
-  border-color: slategray;
-  color: black;
 }
 </style>
 
