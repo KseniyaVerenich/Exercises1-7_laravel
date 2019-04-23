@@ -1778,14 +1778,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       current: "",
       temp: "",
-      numbers: [],
-      ops: ["x", "/", "-", "+", "=", "ac", "+/-", "%"]
+      ops: ["AC", "+/-", "%", "/", "*", "-", "+", "="]
     };
   },
   components: {
@@ -1793,13 +1796,33 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     clickedButton: function clickedButton(obj) {
-      console.log(obj);
-      this.current;
+      if (obj.NumOp == this.ops[7]) {
+        var total = eval(this.current);
+        this.current = total;
+      } else if (obj.NumOp == this.ops[0]) {
+        this.current = "";
+      } else if (obj.NumOp == this.ops[2]) {
+        console.log("line 52", this.current);
+        this.current = this.current / 100;
+        console.log("line 54", this.current);
+      } else if (obj.NumOp == this.ops[1]) {
+        console.log(obj.NumOp);
+
+        if (this.ops[5] != this.current.charAt(0)) {
+          this.current = "-" + this.current;
+        } else {
+          this.current = this.current.slice(1);
+        }
+      } else {
+        this.current = this.current + obj.value;
+      }
+
+      this.temp = this.current;
     }
   },
   created: function created() {
     this.clickedButton({
-      value: "test"
+      value: ""
     });
   }
 });
@@ -1844,7 +1867,8 @@ __webpack_require__.r(__webpack_exports__);
     clickHandler: function clickHandler() {
       var val = this.outputType;
       this.$emit("onButtonClick", {
-        value: val
+        value: val,
+        NumOp: this.operator
       });
     }
   },
@@ -2126,6 +2150,43 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/weatherapp.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/weatherapp.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -6643,7 +6704,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn[data-v-ff7356b0] {\n  background: none;\n  padding: 50px 50px;\n}\n.btn-primary[data-v-ff7356b0] {\n  border: 2px solid darkslategray;\n  color:darkslategray;\n}\n.btn-primary[data-v-ff7356b0]:active,\n.btn-primary[data-v-ff7356b0] {\n  border-color: darkslategray;\n  color: darkslategray;\n  box-shadow: grey;\n}\n", ""]);
+exports.push([module.i, "\n.btn[data-v-ff7356b0] {\n  background: none !important;\n  padding: 50px 50px;\n}\n.btn-primary[data-v-ff7356b0] {\n  border: 2px solid darkslategray;\n  color:darkslategray !important;\n}\n.btn-primary[data-v-ff7356b0]:active,\n.btn-primary[data-v-ff7356b0] {\n  border-color: darkslategray !important;\n  color: darkslategray;\n  \n  outline: none !important;\n   box-shadow: none !important;\n}\n", ""]);
 
 // exports
 
@@ -38008,15 +38069,24 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               n == 11
-                ? _c("calcButton", { attrs: { inputType: "." } })
+                ? _c("calcButton", {
+                    attrs: { inputType: "." },
+                    on: { onButtonClick: _vm.clickedButton }
+                  })
                 : _vm._e(),
               _vm._v(" "),
               n == 10
-                ? _c("calcButton", { attrs: { inputType: "0" } })
+                ? _c("calcButton", {
+                    attrs: { inputType: "0" },
+                    on: { onButtonClick: _vm.clickedButton }
+                  })
                 : _vm._e(),
               _vm._v(" "),
-              n > 11 && n != 19
-                ? _c("calcButton", { attrs: { inputType: _vm.ops[n - 12] } })
+              n > 11 && n != 20
+                ? _c("calcButton", {
+                    attrs: { inputType: _vm.ops[n - 12] },
+                    on: { onButtonClick: _vm.clickedButton }
+                  })
                 : _vm._e()
             ],
             1
@@ -38228,6 +38298,118 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("h1", [_vm._v("YOUR WEATHER")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.zipCode,
+            expression: "zipCode"
+          }
+        ],
+        attrs: { type: "text", placeholder: "40502" },
+        domProps: { value: _vm.zipCode },
+        on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.myFunction()
+          },
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.zipCode = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "weathertop",
+          on: {
+            click: function($event) {
+              return _vm.myFunction()
+            }
+          }
+        },
+        [_vm._v("GET WEATHER")]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "container",
+        staticStyle: { display: "block" },
+        attrs: { id: "weatherInfo" }
+      },
+      [
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: this.showDiv,
+                expression: "this.showDiv"
+              }
+            ],
+            staticClass: "container"
+          },
+          [
+            _c("div", { staticClass: "row" }),
+            _vm._v(" "),
+            _c("div", { attrs: { id: "city" } }, [_vm._v(_vm._s(_vm.city))])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -50401,6 +50583,7 @@ Vue.component('game', __webpack_require__(/*! ./components/game.vue */ "./resour
 Vue.component('square', __webpack_require__(/*! ./components/square.vue */ "./resources/js/components/square.vue")["default"]);
 Vue.component('board', __webpack_require__(/*! ./components/board.vue */ "./resources/js/components/board.vue")["default"]);
 Vue.component('calc-button', __webpack_require__(/*! ./components/calcButton.vue */ "./resources/js/components/calcButton.vue")["default"]);
+Vue.component('weatherapp', __webpack_require__(/*! ./components/weatherapp.vue */ "./resources/js/components/weatherapp.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50475,15 +50658,14 @@ if (token) {
 /*!*******************************************!*\
   !*** ./resources/js/components/board.vue ***!
   \*******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _board_vue_vue_type_template_id_09b136aa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board.vue?vue&type=template&id=09b136aa&scoped=true& */ "./resources/js/components/board.vue?vue&type=template&id=09b136aa&scoped=true&");
 /* harmony import */ var _board_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board.vue?vue&type=script&lang=js& */ "./resources/js/components/board.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _board_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _board_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _board_vue_vue_type_style_index_0_id_09b136aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./board.vue?vue&type=style&index=0&id=09b136aa&scoped=true&lang=css& */ "./resources/js/components/board.vue?vue&type=style&index=0&id=09b136aa&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _board_vue_vue_type_style_index_0_id_09b136aa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./board.vue?vue&type=style&index=0&id=09b136aa&scoped=true&lang=css& */ "./resources/js/components/board.vue?vue&type=style&index=0&id=09b136aa&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -50515,7 +50697,7 @@ component.options.__file = "resources/js/components/board.vue"
 /*!********************************************************************!*\
   !*** ./resources/js/components/board.vue?vue&type=script&lang=js& ***!
   \********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50953,6 +51135,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_square_vue_vue_type_template_id_ff7356b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_square_vue_vue_type_template_id_ff7356b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/weatherapp.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/weatherapp.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true& */ "./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true&");
+/* harmony import */ var _weatherapp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weatherapp.vue?vue&type=script&lang=js& */ "./resources/js/components/weatherapp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _weatherapp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "10df0fb8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/weatherapp.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/weatherapp.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/weatherapp.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_weatherapp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./weatherapp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/weatherapp.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_weatherapp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/weatherapp.vue?vue&type=template&id=10df0fb8&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_weatherapp_vue_vue_type_template_id_10df0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -19,6 +19,7 @@ export default {
   },
   props: {
     inputType: String
+
   },
 
   methods: {
@@ -27,13 +28,15 @@ export default {
         this.number = this.inputType;
       } else {
         this.operator = this.inputType;
+        
       }
     },
 
     clickHandler() {
         
         var val = this.outputType;
-       this.$emit("onButtonClick", {value:val} )
+       this.$emit("onButtonClick", {value:val, NumOp: this.operator} );
+      
     }
 
   
@@ -56,6 +59,8 @@ export default {
   background-color: orange;
   border-color: slategray;
   color: black;
+
+
 }
 </style>
 

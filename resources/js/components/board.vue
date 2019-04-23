@@ -4,9 +4,13 @@
       <div class="display">{{current || 0}}</div>
       <div v-for="n in 20" :key="n">
         <calcButton v-if="n < 10" :inputType="n.toString()" v-on:onButtonClick="clickedButton"></calcButton>
-        <calcButton v-if="n == 11" :inputType="'.'"></calcButton>
-        <calcButton v-if="n == 10" :inputType="'0'"></calcButton>
-        <calcButton v-if="n > 11 && n !=19" :inputType="ops[n-12]"></calcButton>
+        <calcButton v-if="n == 11" :inputType="'.'" v-on:onButtonClick="clickedButton"></calcButton>
+        <calcButton v-if="n == 10" :inputType="'0'" v-on:onButtonClick="clickedButton"></calcButton>
+        <calcButton
+          v-if="n > 11 && n !=20"
+          :inputType="ops[n-12]"
+          v-on:onButtonClick="clickedButton"
+        ></calcButton>
       </div>
     </div>
   </div>
@@ -20,8 +24,7 @@ export default {
     return {
       current: "",
       temp: "",
-      numbers: [],
-      ops: ["x", "/", "-", "+", "=", "ac", "+/-", "%"]
+      ops: ["AC", "+/-", "%", "/", "*", "-", "+", "="]
     };
   },
   components: {
@@ -29,51 +32,35 @@ export default {
   },
 
   methods: {
+    clickedButton(obj) {
+      if (obj.NumOp == this.ops[7]) {
+        var total = eval(this.current);
+        this.current = total;
+      } else if (obj.NumOp == this.ops[0]) {
+        this.current = "";
+      } else if (obj.NumOp == this.ops[2]) {
+        console.log("line 52", this.current);
+        this.current = this.current / 100;
+        console.log("line 54", this.current);
+      } else if (obj.NumOp == this.ops[1]) {
+        console.log (obj.NumOp);
+        if (this.ops[5] != this.current.charAt(0)) {
+          this.current = "-" + this.current;
+        } 
+        else {
+          this.current= this.current.slice(1);
+        }
+      } 
+      else {
+        this.current = this.current + obj.value;
+      }
 
-    clickedButton (obj) {
-        console.log(obj);
-        this.current;
-    },
-//     clear() {
-//       this.current = "";
-//     },
-
-//     sign() {
-//       if (this.current.charAt(0) == ops[2]) {
-//         this.current.slice(1);
-//       } else {
-//         this.current = ops[2] + this.current;
-//       }
-//     },
-
-//     percentage() {
-//       this.current = this.current / 100;
-//     },
-
-//     appendNumber() {
-//       this.current = this.current + ;
-//     },
-
-//     store() {
-//       this.numbers.push(this.current);
-//       this.current = "";
-//       console.log(this.numbers);
-//     },
-
-   
-//     period() {
-//       if (this.current.indexOf(".") === -1) {
-//         this.appendNumber(".");
-//       }
-//     },
-
-//     equal() {
-   
-//     }
+      this.temp = this.current;
+    }
   },
 
-  created (){
-      this.clickedButton({value:"test"});
+  created() {
+    this.clickedButton({ value: "" });
   }
 };
 </script>

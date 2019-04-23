@@ -28,3 +28,8 @@ Route::get('/game', function() {
 Route::get('/calculator', function() {
     return view ('/calculator');
 });
+
+Route::get('/weather', function() {
+    return view ('/weather');
+});
+
