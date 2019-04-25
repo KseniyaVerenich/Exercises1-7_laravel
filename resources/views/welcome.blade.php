@@ -7,14 +7,20 @@
         <title>Home</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Prata" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+            body {
+                background-color: #C3ABFF;
+
+            }
+
+            #title {
+                background-color: #C3ABFF;
+                color: #FAF7FF;
+                font-family: 'Prata', serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -49,9 +55,10 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #EDEBF2;
+                font-family: 'Nunito', sans-serif;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -64,6 +71,7 @@
         </style>
     </head>
     <body>
+ 
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +89,7 @@
 
             <div class="content" id="app">
                 <div class="title m-b-md">
-                    Laravel Exercises 
+                   <a id="title"> Laravel Exercises </a>
 
                     <div class="links">
 
@@ -102,6 +110,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
         <script src="js/app.js"></script>
     </body>
 </html>
