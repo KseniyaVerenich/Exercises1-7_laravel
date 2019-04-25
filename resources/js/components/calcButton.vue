@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="btn btn-primary btn-lg" @click="clickHandler">{{ outputType }}</button>
+    <button type="button" class="btn btn-primary btn-block btn-lg" @click="clickHandler">{{ outputType }}</button>
   </div>
 </template>
 
@@ -57,8 +57,9 @@ export default {
 <style scoped>
 .btn {
   background-color: orange;
-  border-color: slategray;
-  color: black;
+  border-color: darkslategray;
+  color: white;
+  padding: 10px 20px;
 
 
 }

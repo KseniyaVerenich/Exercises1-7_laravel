@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="myContainer">
     <div class="calculator">
       <div class="display">{{current || 0}}</div>
       <div v-for="n in 20" :key="n">
@@ -12,6 +13,7 @@
           v-on:onButtonClick="clickedButton"
         ></calcButton>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -78,7 +80,7 @@ export default {
 
 .display {
   grid-column: 1/5;
-  background-color: rgb(113, 113, 133);
+  background-color: darkslategray;
   border-color: rgb(113, 113, 133);
   color: white;
 }
@@ -86,5 +88,15 @@ export default {
 .zero {
   grid-column: 1/3;
 }
+
+.myContainer {
+ 
+  background-color: lightgray;
+  width: 350px !important;
+  margin-left: 465px;
+  padding: 40px 15px;
+}
+
+
 </style>
 
