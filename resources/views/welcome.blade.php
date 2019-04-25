@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Home</title>
+        <title>Portfolio</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Prata" rel="stylesheet">
@@ -47,7 +47,7 @@
             }
 
             .content {
-                text-align: center;
+                text-align: none;
             }
 
             .title {
@@ -65,53 +65,51 @@
                 text-transform: uppercase;
             }
 
-            .m-b-md {
+            /* .m-b-md {
                 margin-bottom: 30px; 
-            }
+            } */
         </style>
     </head>
     <body>
- 
+        
+        
+<div class="row">
+    <div class ="col">
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+      
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            
+            <div class="title m-b-md">
+                   <a id="title"> Laravel <br>
+                   Exercises </a>
 
-            <div class="content" id="app">
-                <div class="title m-b-md">
-                   <a id="title"> Laravel Exercises </a>
-
+    </div>
+             
+                <div class='col'>
                     <div class="links">
-
+                    
                     <a href="/clock">Clock</a>
+                    <br><br>
                     <a href='/countdown'>Countdown</a>
+                    <br><br>
                     <a href='/game'>Tic-Tac-Toe</a>
+                    <br><br>
                     <a href='/calculator'>Calculator</a>
+                    <br><br>
                     <a href="https://laravelrestaurant.herokuapp.com/" target='_blank'> Restaurant </a>
                     <!-- <a href='/weather'>Weather App</a> -->
                     
                 </div>
-
-                <div>
+                     </div>
+                
 
 
                
-                   
-                </div>
             </div>
         </div>
+    
+</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-
         <script src="js/app.js"></script>
     </body>
 </html>
