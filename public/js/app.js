@@ -1782,6 +1782,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -6647,7 +6649,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.calculator[data-v-09b136aa] {\n  margin: 0 auto;\n  width: 300px;\n  font-size: 40px;\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  grid-auto-rows: minmax(50px, auto);\n}\n.display[data-v-09b136aa] {\n  grid-column: 1/5;\n  background-color: rgb(113, 113, 133);\n  border-color: rgb(113, 113, 133);\n  color: white;\n}\n.zero[data-v-09b136aa] {\n  grid-column: 1/3;\n}\n", ""]);
+exports.push([module.i, "\n.calculator[data-v-09b136aa] {\n  margin: 0 auto;\n  width: 300px;\n  font-size: 40px;\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  grid-auto-rows: minmax(50px, auto);\n}\n.display[data-v-09b136aa] {\n  grid-column: 1/5;\n  background-color: darkslategray;\n  border-color: rgb(113, 113, 133);\n  color: white;\n}\n.zero[data-v-09b136aa] {\n  grid-column: 1/3;\n}\n.myContainer[data-v-09b136aa] {\n \n  background-color: lightgray;\n  width: 350px !important;\n  margin-left: 465px;\n  padding: 40px 15px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -6666,7 +6668,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.btn[data-v-414d621c] {\n  background-color: orange;\n  border-color: slategray;\n  color: black;\n}\n", ""]);
+exports.push([module.i, "\n.btn[data-v-414d621c] {\n  background-color: orange;\n  border-color: darkslategray;\n  color: white;\n  padding: 10px 20px;\n}\n", ""]);
 
 // exports
 
@@ -38048,53 +38050,55 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "calculator" },
-      [
-        _c("div", { staticClass: "display" }, [
-          _vm._v(_vm._s(_vm.current || 0))
-        ]),
-        _vm._v(" "),
-        _vm._l(20, function(n) {
-          return _c(
-            "div",
-            { key: n },
-            [
-              n < 10
-                ? _c("calcButton", {
-                    attrs: { inputType: n.toString() },
-                    on: { onButtonClick: _vm.clickedButton }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              n == 11
-                ? _c("calcButton", {
-                    attrs: { inputType: "." },
-                    on: { onButtonClick: _vm.clickedButton }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              n == 10
-                ? _c("calcButton", {
-                    attrs: { inputType: "0" },
-                    on: { onButtonClick: _vm.clickedButton }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              n > 11 && n != 20
-                ? _c("calcButton", {
-                    attrs: { inputType: _vm.ops[n - 12] },
-                    on: { onButtonClick: _vm.clickedButton }
-                  })
-                : _vm._e()
-            ],
-            1
-          )
-        })
-      ],
-      2
-    )
+    _c("div", { staticClass: "myContainer" }, [
+      _c(
+        "div",
+        { staticClass: "calculator" },
+        [
+          _c("div", { staticClass: "display" }, [
+            _vm._v(_vm._s(_vm.current || 0))
+          ]),
+          _vm._v(" "),
+          _vm._l(20, function(n) {
+            return _c(
+              "div",
+              { key: n },
+              [
+                n < 10
+                  ? _c("calcButton", {
+                      attrs: { inputType: n.toString() },
+                      on: { onButtonClick: _vm.clickedButton }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                n == 11
+                  ? _c("calcButton", {
+                      attrs: { inputType: "." },
+                      on: { onButtonClick: _vm.clickedButton }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                n == 10
+                  ? _c("calcButton", {
+                      attrs: { inputType: "0" },
+                      on: { onButtonClick: _vm.clickedButton }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                n > 11 && n != 20
+                  ? _c("calcButton", {
+                      attrs: { inputType: _vm.ops[n - 12] },
+                      on: { onButtonClick: _vm.clickedButton }
+                    })
+                  : _vm._e()
+              ],
+              1
+            )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -38123,7 +38127,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary btn-lg",
+        staticClass: "btn btn-primary btn-block btn-lg",
         attrs: { type: "button" },
         on: { click: _vm.clickHandler }
       },
