@@ -33,20 +33,22 @@ export default {
 
 <style scoped>
 .btn {
-  background: none;
+  background: none !important;
   padding: 50px 50px;
 }
 
 .btn-primary {
   border: 2px solid darkslategray;
-  color:darkslategray;
+  color:darkslategray !important;
 }
 
 
 .btn-primary:active,
 .btn-primary {
-  border-color: darkslategray;
+  border-color: darkslategray !important;
   color: darkslategray;
-  box-shadow: grey;
+  
+  outline: none !important;
+   box-shadow: none !important;
 }
 </style>

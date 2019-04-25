@@ -24,7 +24,9 @@ Vue.component('clock', require('./components/clock.vue').default);
 Vue.component('countdown', require('./components/countdown.vue').default);
 Vue.component('game', require('./components/game.vue').default);
 Vue.component('square', require('./components/square.vue').default);
-
+Vue.component('board', require('./components/board.vue').default);
+Vue.component('calc-button', require('./components/calcButton.vue').default);
+Vue.component('weatherapp', require('./components/weatherapp.vue').default);
 
 
 /**
