@@ -63,6 +63,12 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+               
+            }
+
+            .links > a:hover {
+                color: #F2A488;
+
             }
 
             /* .m-b-md {
