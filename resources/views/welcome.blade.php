@@ -13,13 +13,13 @@
         <!-- Styles -->
         <style>
             body {
-                background-color: #C3ABFF;
+                background-color: #FAF7FF;
 
             }
 
             #title {
-                background-color: #C3ABFF;
-                color: #FAF7FF;
+                background-color: #FAF7FF;
+                color: #F2A488;
                 font-family: 'Prata', serif;
                 font-weight: 200;
                 height: 100vh;
@@ -55,7 +55,7 @@
             }
 
             .links > a {
-                color: #EDEBF2;
+                color: #C8C6D8;
                 font-family: 'Nunito', sans-serif;
                 padding: 0 25px;
                 font-size: 15px;
@@ -84,7 +84,7 @@
                    Exercises </a>
 
     </div>
-             
+             <div class="col">
                 <div class='col'>
                     <div class="links">
                     
